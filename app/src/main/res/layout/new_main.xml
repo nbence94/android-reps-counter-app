@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_3"
+    android:gravity="center">
+
+
+    <LinearLayout
+        android:id="@+id/counter_settings_layout_gui"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/border"
+        android:orientation="vertical"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Fenti rész -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:text="FENT"
+                android:textColor="@color/main_font"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/up_decrease_btn_gui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/main_step_button_1"
+                    android:elevation="6dp"
+                    app:borderWidth="0dp"
+                    app:srcCompat="@drawable/rm_icon" />
+
+                <TextView
+                    android:id="@+id/up_second_text_gui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="2dp"
+                    android:text="4.5"
+                    android:textColor="@color/main_font"
+                    android:textSize="45sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="mp"
+                    android:textColor="@color/main_font"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/up_increase_btn_gui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/main_step_button_1"
+                    android:elevation="6dp"
+                    app:borderWidth="0dp"
+                    app:srcCompat="@drawable/add_icon" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Lenti kiírás -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:text="LENT"
+                android:textColor="@color/main_font"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/down_decrease_btn_gui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/main_step_button_1"
+                    android:elevation="6dp"
+                    app:borderWidth="0dp"
+                    app:srcCompat="@drawable/rm_icon" />
+
+                <TextView
+                    android:id="@+id/down_second_text_gui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="2dp"
+                    android:text="4.5"
+                    android:textColor="@color/main_font"
+                    android:textSize="45sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="mp"
+                    android:textColor="@color/main_font"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/down_increase_btn_gui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/main_step_button_1"
+                    android:elevation="6dp"
+                    app:borderWidth="0dp"
+                    app:srcCompat="@drawable/add_icon" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Ismétlés -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:text="ISMÉTLÉS"
+                android:textColor="@color/main_font"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/reps_decrease_btn_gui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/main_step_button_1"
+                    android:elevation="6dp"
+                    app:borderWidth="0dp"
+                    app:srcCompat="@drawable/rm_icon" />
+
+                <TextView
+                    android:id="@+id/reps_text_gui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="2dp"
+                    android:text="100"
+                    android:textColor="@color/main_font"
+                    android:textSize="45sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="db"
+                    android:textColor="@color/main_font"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/reps_increase_btn_gui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/main_step_button_1"
+                    android:elevation="6dp"
+                    app:borderWidth="0dp"
+                    app:srcCompat="@drawable/add_icon" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/control_counter_btn_gui"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/main_step_button_1"
+        android:text="INDÍT"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/counter_settings_layout_gui"
+        app:layout_constraintEnd_toEndOf="@+id/counter_settings_layout_gui"
+        app:layout_constraintStart_toStartOf="@+id/counter_settings_layout_gui"
+        app:layout_constraintTop_toBottomOf="@+id/counter_settings_layout_gui"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:id="@+id/rest_settings_layout_gui"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/border"
+        android:orientation="vertical"
+        android:paddingTop="40dp"
+        android:paddingBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/counter_settings_layout_gui"
+        app:layout_constraintVertical_bias="0.0">
+
+        <!-- Fenti rész -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:text="KÖR"
+                android:textColor="@color/main_font"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/circle_decrease_btn_gui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/main_step_button_1"
+                    android:elevation="6dp"
+                    app:borderWidth="0dp"
+                    app:fabSize="mini"
+                    app:srcCompat="@drawable/rm_icon" />
+
+                <TextView
+                    android:id="@+id/circle_second_text_gui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="2dp"
+                    android:text="10"
+                    android:textColor="@color/main_font"
+                    android:textSize="35sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="db"
+                    android:textColor="@color/main_font"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/circle_increase_btn_gui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/main_step_button_1"
+                    android:elevation="6dp"
+                    app:borderWidth="0dp"
+                    app:fabSize="mini"
+                    app:srcCompat="@drawable/add_icon" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Fenti rész -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:text="SZÜNET"
+                android:textColor="@color/main_font"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/rest_decrease_btn_gui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/main_step_button_1"
+                    android:elevation="6dp"
+                    app:borderWidth="0dp"
+                    app:fabSize="mini"
+                    app:srcCompat="@drawable/rm_icon" />
+
+                <TextView
+                    android:id="@+id/rest_second_text_gui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="2dp"
+                    android:text="10"
+                    android:textColor="@color/main_font"
+                    android:textSize="35sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="mp"
+                    android:textColor="@color/main_font"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/rest_increase_btn_gui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/main_step_button_1"
+                    android:contentDescription="TODO"
+                    android:elevation="6dp"
+                    app:borderWidth="0dp"
+                    app:fabSize="mini"
+                    app:srcCompat="@drawable/add_icon" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

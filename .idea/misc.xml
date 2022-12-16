@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/02_programing/00_language/android/CounterProject/app/src/main/res/drawable/border.xml" value="0.1" />
+        <entry key="..\:/02_programing/00_language/android/CounterProject/app/src/main/res/drawable/border_bg.xml" value="0.1295" />
+        <entry key="..\:/02_programing/00_language/android/CounterProject/app/src/main/res/drawable/button_background_color.xml" value="0.105" />
+        <entry key="..\:/02_programing/00_language/android/CounterProject/app/src/main/res/drawable/button_background_color_down.xml" value="0.105" />
+        <entry key="..\:/02_programing/00_language/android/CounterProject/app/src/main/res/drawable/button_deactivate.xml" value="0.1045" />
+        <entry key="..\:/02_programing/00_language/android/CounterProject/app/src/main/res/drawable/buttons_color.xml" value="0.1075" />
+        <entry key="..\:/02_programing/00_language/android/CounterProject/app/src/main/res/drawable/circle.xml" value="0.1225" />
+        <entry key="..\:/02_programing/00_language/android/CounterProject/app/src/main/res/drawable/close_icon.xml" value="0.1435" />
+        <entry key="..\:/02_programing/00_language/android/CounterProject/app/src/main/res/drawable/down_icon_bigger.xml" value="0.2555" />
+        <entry key="..\:/02_programing/00_language/android/CounterProject/app/src/main/res/drawable/inactive_color.xml" value="0.1355" />
+        <entry key="..\:/02_programing/00_language/android/CounterProject/app/src/main/res/drawable/rm_icon.xml" value="0.2555" />
+        <entry key="..\:/02_programing/00_language/android/CounterProject/app/src/main/res/drawable/up_icon_bigger.xml" value="0.2555" />
+        <entry key="..\:/02_programing/00_language/android/CounterProject/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/02_programing/00_language/android/CounterProject/app/src/main/res/layout/counter_layout.xml" value="0.264" />
+        <entry key="..\:/02_programing/00_language/android/CounterProject/app/src/main/res/layout/get_ready_layout.xml" value="0.264" />
+        <entry key="..\:/02_programing/00_language/android/CounterProject/app/src/main/res/layout/new_main.xml" value="0.25" />
+        <entry key="..\:/02_programing/00_language/android/CounterProject/app/src/main/res/layout/new_main_activity.xml" value="0.264" />
+        <entry key="..\:/02_programing/00_language/android/CounterProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.121" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Számoló!</string>
+
+    <string name="control_button_start">Indít</string>
+    <string name="control_button_stop">Leállít</string>
+    <string name="get_ready_text">Felkészülni!</string>
+</resources>
