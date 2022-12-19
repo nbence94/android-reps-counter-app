@@ -20,7 +20,9 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton upSleepDecrease, upSleepIncrease, repeatDecrease, repeatIncrease;
     FloatingActionButton roundDecrease, roundIncrease, pauseDecrease, pauseIncrease;
     TextView upSleepText, repeatText, roundText, pauseText;
+    TextView minuteText, secondsText;
     Button controlButton;
+    ImageView reverseButton;
     Context context = this;
 
     //Section One - Sleep & Repeat values
@@ -32,12 +34,16 @@ public class MainActivity extends AppCompatActivity {
     int main_pause_value = 0;
     int rounds;
     int counter = 0;
-    boolean down = false; //if it is false, then it's up
+    boolean position = false; //if it is false, then it's up
+    boolean reversed = false; //Need because of the Signs (Which PositionButton be shown for first)
 
     //Section Four - Classes & Objects
     CountDownTimer cdt;
     MediaPlayer soundEffect;
     Dialog counterDialog;
+
+    //Section Five - Time Convert
+    ConvertTime ct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +58,17 @@ public class MainActivity extends AppCompatActivity {
         roundText.setText(String.valueOf(main_round_value));
         pauseText.setText(String.valueOf(main_pause_value));
 
+        //Converting
+        ct = new ConvertTime();
+
         //Control the buttons
         repeatMethod();
         upSleepMethod();
         roundMethod();
         pauseMethod();
+
+        //ReverseButton
+        reverse();
 
         controlButton.setOnClickListener(click -> {
             if(main_up_sleep_value == 0.0 || /*down_sleep_value == 0.0 || */main_repeat_value == 0.0) return;
@@ -117,11 +129,26 @@ public class MainActivity extends AppCompatActivity {
         cdt = new CountDownTimer((int)goal, (int)up_tick) {
             @Override
             public void onTick(long time) {
-                if(down) {
-                    down = false;
+                if(!reversed) {
+                    if(position) {
+                        toDownSignButton.setBackgroundResource(R.color.main_font);
+                        toUpSignButton.setBackgroundResource(R.drawable.button_background_color_up);
+                    } else {
+                        toUpSignButton.setBackgroundResource(R.color.main_font);
+                        toDownSignButton.setBackgroundResource(R.drawable.button_background_color_down);
+                    }
+                } else {
+                    if(position) {
+                        toUpSignButton.setBackgroundResource(R.color.main_font);
+                        toDownSignButton.setBackgroundResource(R.drawable.button_background_color_down);
+                    } else {
+                        toDownSignButton.setBackgroundResource(R.color.main_font);
+                        toUpSignButton.setBackgroundResource(R.drawable.button_background_color_up);
+                    }
+                }
 
-                    toDownSignButton.setBackgroundResource(R.color.main_font);
-                    toUpSignButton.setBackgroundResource(R.drawable.button_background_color_up);
+                if(position) {
+                    position = false;
 
                     //Push the counter
                     counter++;
@@ -137,10 +164,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 } else {
-                    down = true;
-
-                    toUpSignButton.setBackgroundResource(R.color.main_font);
-                    toDownSignButton.setBackgroundResource(R.drawable.button_background_color_down);
+                    position = true;
 
                     //Sound
                     soundEffect = MediaPlayer.create(context, R.raw.down_sound);
@@ -226,7 +250,7 @@ public class MainActivity extends AppCompatActivity {
         //Stop the counting - reset everything
 
         //Set everything false and 0
-        down = false;
+        position = false;
         counter = 0;
 
         //Set the Start button's color and text
@@ -263,17 +287,43 @@ public class MainActivity extends AppCompatActivity {
         pauseText = findViewById(R.id.rest_second_text_gui);
 
         controlButton = findViewById(R.id.control_counter_btn_gui);
+
+        minuteText = findViewById(R.id.minute_summary_gui);
+        secondsText = findViewById(R.id.seconds_summary_gui);
+        reverseButton = findViewById(R.id.reverse_count_gui);
+    }
+
+    private void reverse() {
+        reverseButton.setOnClickListener(click -> {
+            if(!reversed) {
+                reversed = true;
+                Log.i("ReverseButton", "True");
+                reverseButton.setColorFilter(getResources().getColor(R.color.main_step_button_1));
+            } else {
+                reversed = false;
+                Log.i("ReverseButton", "False");
+                reverseButton.setColorFilter(getResources().getColor(R.color.main_font));
+            }
+        });
     }
 
     private void repeatMethod() {
+
+
         repeatDecrease.setOnClickListener(click -> {
             main_repeat_value -= (main_repeat_value > 0) ? 2 : 0;
             repeatText.setText(String.valueOf(main_repeat_value));
+            int summary = ct.sumSeconds(main_up_sleep_value, main_repeat_value, main_round_value, main_pause_value);
+            minuteText.setText(ct.getMinutes(summary));
+            secondsText.setText(ct.getSeconds(summary));
         });
 
         repeatIncrease.setOnClickListener(click -> {
             main_repeat_value += (main_repeat_value < 100) ? 2 : 0;
             repeatText.setText(String.valueOf(main_repeat_value));
+            int summary = ct.sumSeconds(main_up_sleep_value, main_repeat_value, main_round_value, main_pause_value);
+            minuteText.setText(ct.getMinutes(summary));
+            secondsText.setText(ct.getSeconds(summary));
         });
     }
 
@@ -281,11 +331,17 @@ public class MainActivity extends AppCompatActivity {
         upSleepDecrease.setOnClickListener(click -> {
             main_up_sleep_value -= (main_up_sleep_value > 0) ? 0.5 : 0;
             upSleepText.setText(String.valueOf(main_up_sleep_value));
+            int summary = ct.sumSeconds(main_up_sleep_value, main_repeat_value, main_round_value, main_pause_value);
+            minuteText.setText(ct.getMinutes(summary));
+            secondsText.setText(ct.getSeconds(summary));
         });
 
         upSleepIncrease.setOnClickListener(click -> {
             main_up_sleep_value += (main_up_sleep_value < 5) ? 0.5 : 0;
             upSleepText.setText(String.valueOf(main_up_sleep_value));
+            int summary = ct.sumSeconds(main_up_sleep_value, main_repeat_value, main_round_value, main_pause_value);
+            minuteText.setText(ct.getMinutes(summary));
+            secondsText.setText(ct.getSeconds(summary));
         });
     }
 
@@ -293,11 +349,17 @@ public class MainActivity extends AppCompatActivity {
         roundDecrease.setOnClickListener(click -> {
             main_round_value -= (main_round_value > 1) ? 1 : 0;
             roundText.setText(String.valueOf(main_round_value));
+            int summary = ct.sumSeconds(main_up_sleep_value, main_repeat_value, main_round_value, main_pause_value);
+            minuteText.setText(ct.getMinutes(summary));
+            secondsText.setText(ct.getSeconds(summary));
         });
 
         roundIncrease.setOnClickListener(click -> {
             main_round_value += (main_round_value < 10) ? 1 : 0;
             roundText.setText(String.valueOf(main_round_value));
+            int summary = ct.sumSeconds(main_up_sleep_value, main_repeat_value, main_round_value, main_pause_value);
+            minuteText.setText(ct.getMinutes(summary));
+            secondsText.setText(ct.getSeconds(summary));
         });
     }
 
@@ -305,11 +367,17 @@ public class MainActivity extends AppCompatActivity {
         pauseDecrease.setOnClickListener(click -> {
             main_pause_value -= (main_pause_value > 0) ? 5 : 0;
             pauseText.setText(String.valueOf(main_pause_value));
+            int summary = ct.sumSeconds(main_up_sleep_value, main_repeat_value, main_round_value, main_pause_value);
+            minuteText.setText(ct.getMinutes(summary));
+            secondsText.setText(ct.getSeconds(summary));
         });
 
         pauseIncrease.setOnClickListener(click -> {
             main_pause_value += (main_pause_value < 60) ? 5 : 0;
             pauseText.setText(String.valueOf(main_pause_value));
+            int summary = ct.sumSeconds(main_up_sleep_value, main_repeat_value, main_round_value, main_pause_value);
+            minuteText.setText(ct.getMinutes(summary));
+            secondsText.setText(ct.getSeconds(summary));
         });
     }
 
